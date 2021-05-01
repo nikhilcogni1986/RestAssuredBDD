@@ -3,7 +3,6 @@ package StepDefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
@@ -13,7 +12,6 @@ import io.restassured.specification.ResponseSpecification;
 import resources.TestDataBuild;
 import resources.Utils;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import static io.restassured.RestAssured.given;
@@ -25,9 +23,9 @@ public class stepDefinitions extends Utils {
   Response response;
   TestDataBuild T1 = new TestDataBuild();
 
-  @Given("Add Place Payload")
-  public void add_place_payload() throws IOException {
-    complete_request = given().spec(createRequestSpecification()).body(T1.addPlaceData());
+  @Given("Add Place Payload with {string} {string} {string}")
+  public void add_place_payload(String name, String address, String language) throws IOException {
+    complete_request = given().spec(createRequestSpecification()).body(T1.addPlaceData(name, address, language));
   }
 
   @When("User calls {string} with Post http request")

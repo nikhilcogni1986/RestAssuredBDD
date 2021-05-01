@@ -7,14 +7,14 @@ import java.util.ArrayList;
 
 public class TestDataBuild
 {
-    public AddPlace addPlaceData()
+    public AddPlace addPlaceData(String name, String address, String language)
     {
         AddPlace AP = new AddPlace();
 
         AP.setAccuracy(50);
-        AP.setAddress("29, side layout, cohen 09");
-        AP.setLanguage("French-IN");
-        AP.setName("Frontline house");
+        AP.setAddress(address);
+        AP.setLanguage(language);
+        AP.setName(name);
         AP.setPhone_number("(+91) 983 893 3937");
 
         // set types
